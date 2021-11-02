@@ -1,5 +1,4 @@
 import { readFile, writeFile } from "fs/promises";
-import { join } from "path";
 
 const getId = (): string => {
   return `${new Date().getTime()}-${Math.random()}`;
@@ -73,10 +72,6 @@ export interface Token {
   userId: string;
 }
 
-export const userRepository = new DBRepository<User>(
-  join(__dirname, "..", "..", "..", "..", "user-db.json")
-);
+export const userRepository = new DBRepository<User>("user-db.json");
 
-export const tokenRepository = new DBRepository<Token>(
-  join(__dirname, "..", "..", "..", "..", "token-db.json")
-);
+export const tokenRepository = new DBRepository<Token>("token-db.json");

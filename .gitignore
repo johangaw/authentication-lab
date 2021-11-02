@@ -37,3 +37,4 @@ yarn-error.log*
 *.tsbuildinfo
 
 user-db.json
+token-db.json

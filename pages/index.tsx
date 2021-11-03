@@ -14,12 +14,13 @@ const Home: NextPage = () => {
 
     fetch("/api/auth/sign-in", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: form.email.value,
         password: form.password.value,
       }),
     }).then(() => {
-      router.replace("/secrets");
+      router.push("/secrets");
     });
   };
 

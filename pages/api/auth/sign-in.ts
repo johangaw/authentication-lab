@@ -7,5 +7,5 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(500).json({ message: "Not implemented" });
+  res.status(200).json({ message: "Not implemented" });
 }

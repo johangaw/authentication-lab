@@ -60,18 +60,6 @@ class DBRepository<T extends { id: string }> {
   }
 }
 
-export interface User {
-  id: string;
-  email: string;
-  password: string;
-}
-
-export interface Token {
-  id: string;
-  token: string;
-  userId: string;
-}
-
 export const userRepository = new DBRepository<User>("user-db.json");
 
 export const tokenRepository = new DBRepository<Token>("token-db.json");

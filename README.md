@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Authentication Lab 😎
 
-## Getting Started
+This application is a archive with very secret information.
+Unfortunately, some lazy consultant has ignored to implement the authentication needed to protect the secret data!
+You must hurry to fulfill this task before any malicious muppets arrives and steal the information 😱 🏴‍☠️
 
-First, run the development server:
+## Project structure
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### pages/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This is a nextjs project, which means (almost) every file inside the `pages` directory creates a route on the server. These files exports a react component and that is what is shown when a browser goes to that specific URL.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- `pages/index.tsx` => `localhost:3000/`
+- `pages/sign-up.tsx` => `localhost:3000/sign-up`
+- `pages/secrets.tsx` => `localhost:3000/secrets`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Also, every file within the `pages/api` directory cerates an API route which we can call with the `fetch` function from our react components.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Remember that all code in these files are only run on the server and never in the browser.
 
-## Learn More
+- `pages/api/secrets.ts` => `localhost:3000/api/secrets`
+- `pages/api/auth/sign-in.ts` => `localhost:3000/api/auth/sign-in`
+- `pages/api/auth/sign-out.ts` => `localhost:3000/api/auth/sign-out`
+- `pages/api/auth/sign-up.ts` => `localhost:3000/api/auth/sign-up`
 
-To learn more about Next.js, take a look at the following resources:
+### services/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Here we find services that helps out with backend tasks. For example `services/db/userRepository` and `services/db/tokenRepository` which can be used to persist users and token objects. `services/crypto` contains reimplemented functions for hashing and
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Get started
 
-## Deploy on Vercel
+Install dependencies: `npm install`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Start development server: `npm run dev`

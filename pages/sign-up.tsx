@@ -1,37 +1,37 @@
 import type { NextPage } from "next";
-import Link from "next/link";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 import { FormEventHandler } from "react";
 import { PageWrapper } from "../components/PageWrapper";
-import styles from "../styles/Home.module.css";
+import { Secret } from "../types/globalTypes";
 
-const Home: NextPage = () => {
+const SignUp: NextPage = () => {
   const router = useRouter();
 
-  const onSignIn: FormEventHandler<HTMLFormElement> = (ev) => {
+  const onSignUp: FormEventHandler<HTMLFormElement> = (ev) => {
     ev.preventDefault();
 
     const form = ev.currentTarget;
 
-    fetch("/api/auth/sign-in", {
+    fetch("/api/auth/sign-up", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: form.email.value,
         password: form.password.value,
+        passwordAgain: form.passwordAgain.value,
       }),
     }).then(() => {
-      router.push("/secrets");
+      router.push("/");
     });
   };
 
   return (
-    <PageWrapper style={{ backgroundColor: "green" }}>
-      <h1 className={styles.title}>Welcome to the public site</h1>
+    <PageWrapper style={{ backgroundColor: "lightgreen" }}>
+      <h1>Sign up 😎</h1>
 
-      <p>Please login to see the good stuff! ;)</p>
+      <p>Create a user and get to know the good stuff 😉</p>
 
-      <form onSubmit={onSignIn}>
+      <form onSubmit={onSignUp}>
         <div>
           <label>
             <p style={{ marginBottom: 0 }}>Email:</p>
@@ -46,16 +46,19 @@ const Home: NextPage = () => {
           </label>
         </div>
 
+        <div>
+          <label>
+            <p style={{ marginBottom: 0 }}>Password again:</p>
+            <input type="password" name="passwordAgain" />
+          </label>
+        </div>
+
         <p>
-          <button type="submit">Sign in</button>
+          <button type="submit">Sign up</button>
         </p>
       </form>
-
-      <p>
-        <Link href="/sign-up">No Account?</Link>
-      </p>
     </PageWrapper>
   );
 };
 
-export default Home;
+export default SignUp;

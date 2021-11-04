@@ -50,7 +50,7 @@ All code already in the repo is just a guideline, feel free to change and add as
 ### User stories
 
 - As a user, I should be able to create an account at `localhost:3000/sign-up` by providing an email and a password.
-  - Users should be persisted between server restarts
+  - Users should be persisted between server restarts (you can use `services/db/userService` for this)
 - As a user with an account, I should be able to sign in at `localhost:3000/` using my email end password.
   - The sign in endpoint should be: `localhost:3000/api/auth/sign-in`
   - If the wrong email and password is used the endpoint should return status 401
@@ -73,7 +73,7 @@ Here are some more stuff that we need to fix. Feel free to take them in any orde
 - As an un-authenticated user, I should be redirected to the the login page when the secrets endpoint returns a 401
 - As a signed in user, I should be able to sign out using a button on the secrets page
   - The token needs to be removed from both server and client
-- As a user directly after a successful sign up, I want to be redirected to the sign in page
+- As a user after a successful sign up, I want to signed in automatically and redirected to the secrets page
 - As a user, I want my token to only be valid for 30sec
   - Using the token to access secrets after this should result in status 401 from the server.
 - As a system manager, I would like new user to only have access to secrets with level "NotSoSecret" (this is called authorization)
@@ -87,4 +87,4 @@ Here are some more stuff that we need to fix. Feel free to take them in any orde
 - As a signed in user, I want to be able to sign everyone out from my account
   - If the same user has signed in in another browser, that session should be terminated as well
 - As a signed in user, when I open a new tab in my browser and navigate to the secrets page I still have access
-- As a signed in user, when I close all secret taps and then opens a new open, I should be signed out
+- As a signed in user, when I close all "secret page" tabs and then opens a new tab in my browser, I should be signed out

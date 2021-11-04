@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { PageWrapper } from "../components/PageWrapper";
-import { Secret } from "../types/globalTypes";
+import { Secret } from "../types";
 
 const Secrets: NextPage = () => {
   const [secrets, setSecrets] = useState<Secret[]>([]);

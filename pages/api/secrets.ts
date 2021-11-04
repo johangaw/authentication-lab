@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { SecrecyLevel, Secret } from "../../types/globalTypes";
+import { SecrecyLevel, Secret } from "../../types";
 
 const secrets: Secret[] = [
   { message: "Meaning of life is 42", level: SecrecyLevel.Secret },

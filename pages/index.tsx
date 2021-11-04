@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
 import { FormEventHandler } from "react";
 import { PageWrapper } from "../components/PageWrapper";
-import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -27,7 +26,7 @@ const Home: NextPage = () => {
 
   return (
     <PageWrapper style={{ backgroundColor: "green" }}>
-      <h1 className={styles.title}>Welcome to the public site</h1>
+      <h1>Welcome to the public site</h1>
 
       <p>Please login to see the good stuff! ;)</p>
 

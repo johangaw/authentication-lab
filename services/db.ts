@@ -1,5 +1,5 @@
 import { readFile, writeFile } from "fs/promises";
-import { Token, User } from "../types/globalTypes";
+import { Token, User } from "../types";
 
 const getId = (): string => {
   return `${new Date().getTime()}-${Math.random()}`;

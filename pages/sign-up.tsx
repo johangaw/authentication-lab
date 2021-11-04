@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { FormEventHandler } from "react";
 import { PageWrapper } from "../components/PageWrapper";
-import { Secret } from "../types/globalTypes";
+import { Secret } from "../types";
 
 const SignUp: NextPage = () => {
   const router = useRouter();

@@ -86,5 +86,5 @@ Here are some more stuff that we need to fix. Feel free to take them in any orde
   - Changes should apply directly without any need for the affected user to sign out
 - As a signed in user, I want to be able to sign everyone out from my account
   - If the same user has signed in in another browser, that session should be terminated as well
-- As a signed in user, when I open a new tab in my browser and navigate to `localhost:3000/secrets` I still have access
+- As a signed in user, when I open a new tab in my browser and navigate to the secrets page I still have access
 - As a signed in user, when I close all secret taps and then opens a new open, I should be signed out

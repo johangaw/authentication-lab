@@ -25,10 +25,59 @@ Remember that all code in these files are only run on the server and never in th
 
 ### services/
 
-Here we find services that helps out with backend tasks. For example `services/db/userRepository` and `services/db/tokenRepository` which can be used to persist users and token objects. `services/crypto` contains reimplemented functions for hashing and
+Here we find services that helps out with backend tasks. For example `services/db/userRepository` and `services/db/tokenRepository` which can be used to persist users and token objects. `services/crypto` contains examples of hash and encryption functions.
+
+### components/
+
+React components that we use in different places.
 
 ## Get started
 
 Install dependencies: `npm install`
 
 Start development server: `npm run dev`
+
+Open site at: `http://localhost:3000`
+
+## Your mission (whether you accept it or not)
+
+Add authentication (and later authorization) so that the the secrets on `localhost:3000/secrets` are protected.
+
+All code already in the repo is just a guideline, feel free to change and add as much as you want 😁
+
+### User stories
+
+- As a user, I should be able to create an account at `localhost:3000/sign-in` by providing an email and a password.
+  - Users should be persisted between server restarts
+- As a user with an account, I should be able to sign in at `localhost:3000/` using my email end password.
+  - The sign in endpoint should be: `localhost:3000/api/auth/sign-in`
+  - If the wrong email and password is used the endpoint should return status 401
+  - A successful sign in should return a token back to the client
+  - A successful sign in should move the user to `localhost:3000/secrets`
+- As a signed in user, I should be able to view the secrets listed at `localhost:3000/secrets`
+  - Authentication should be performed by sending the token in the `Authentication` header
+  - An un-authenticated request to `localhost:3000/api/secrets` should result in a 401 **AND NO DATA**
+  - An authenticated request should return all data
+- As a user, I **DO NOT** want to have password stored in plain text anywhere!!!
+
+---
+
+Holy moly! Are you done already 😃. Great Job!  
+Here are some more stuff that we need to fix. Feel free to take them in any order though.
+
+---
+
+- As an un-authenticated user, I should be redirected to the the login page when the secrets endpoint returns a 401.
+- As a signed in user, I should be able to sign out using a button on the secrets page
+  - The token needs to be removed from both server and client
+- As a user directly after a successful sign up, I want to be redirected to the sign in page
+- As a user, I want my token to only be valid for 30sec
+  - Using the token to access secrets after this should result in status 401 from the server.
+- As a system manager, I would like new user to only have access to secrets with level "NotSoSecret" (this is called authorization)
+  - Only these items should be shown when the signed in user accesses the secrets endpoint
+- As a system manager, I want to be able to grant more access to a player
+  - This should be done via a new endpoint
+  - The endpoint should return 401 for signed out users
+  - The endpoint should return 403 for signed in regular users (not system managers)
+  - The manager should be able to change the "security level" of a given user to any value
+  - Changes should apply directly without any need for the affected user to sign out

@@ -69,7 +69,8 @@ Here are some more stuff that we need to fix. Feel free to take them in any orde
 
 ---
 
-- As an un-authenticated user, I should be redirected to the the login page when the secrets endpoint returns a 401.
+- As a signed in user, when I reload my browser (ctrl+R or cmd+R) I should still be signed in
+- As an un-authenticated user, I should be redirected to the the login page when the secrets endpoint returns a 401
 - As a signed in user, I should be able to sign out using a button on the secrets page
   - The token needs to be removed from both server and client
 - As a user directly after a successful sign up, I want to be redirected to the sign in page
@@ -85,3 +86,5 @@ Here are some more stuff that we need to fix. Feel free to take them in any orde
   - Changes should apply directly without any need for the affected user to sign out
 - As a signed in user, I want to be able to sign everyone out from my account
   - If the same user has signed in in another browser, that session should be terminated as well
+- As a signed in user, when I open a new tab in my browser and navigate to `localhost:3000/secrets` I still have access
+- As a signed in user, when I close all secret taps and then opens a new open, I should be signed out

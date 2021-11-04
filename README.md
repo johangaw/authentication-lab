@@ -8,13 +8,15 @@ You must hurry to fulfill this task before any malicious muppets arrives and ste
 
 ### pages/
 
-This is a nextjs project, which means (almost) every file inside the `pages` directory creates a route on the server. These files exports a react component and that is what is shown when a browser goes to that specific URL.
+This is a nextjs project, which means (almost) every file inside the `pages` directory creates a route on the server. These files exports a react component which is shown when a browser goes to that specific URL.
+
+Remember that al code in these files runs on the client, which mean we can have no secrets here.
 
 - `pages/index.tsx` => `localhost:3000/`
 - `pages/sign-up.tsx` => `localhost:3000/sign-up`
 - `pages/secrets.tsx` => `localhost:3000/secrets`
 
-Also, every file within the `pages/api` directory cerates an API route which we can call with the `fetch` function from our react components.
+Also, every file within the `pages/api` directory cerates an API route which we can call from our react components.
 
 Remember that all code in these files are only run on the server and never in the browser.
 
@@ -29,7 +31,7 @@ Here we find services that helps out with backend tasks. For example `services/d
 
 ### components/
 
-React components that we use in different places.
+React components that we want to be able to reuse in many places.
 
 ## Get started
 
@@ -47,7 +49,7 @@ All code already in the repo is just a guideline, feel free to change and add as
 
 ### User stories
 
-- As a user, I should be able to create an account at `localhost:3000/sign-in` by providing an email and a password.
+- As a user, I should be able to create an account at `localhost:3000/sign-up` by providing an email and a password.
   - Users should be persisted between server restarts
 - As a user with an account, I should be able to sign in at `localhost:3000/` using my email end password.
   - The sign in endpoint should be: `localhost:3000/api/auth/sign-in`
@@ -81,3 +83,5 @@ Here are some more stuff that we need to fix. Feel free to take them in any orde
   - The endpoint should return 403 for signed in regular users (not system managers)
   - The manager should be able to change the "security level" of a given user to any value
   - Changes should apply directly without any need for the affected user to sign out
+- As a signed in user, I want to be able to sign everyone out from my account
+  - If the same user has signed in in another browser, that session should be terminated as well
